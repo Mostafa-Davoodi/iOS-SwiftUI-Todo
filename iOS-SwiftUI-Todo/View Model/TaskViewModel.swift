@@ -12,10 +12,12 @@ import RealmSwift
 final class TaskViewModel: ObservableObject {
 	
 	@Published var tasks: [Task] = []
+	var realm: Realm!
 	
 	private var token: NotificationToken?
 	
 	init() {
+		self.realm = try? Realm()
 		setupObserver()
 	}
 	
@@ -23,42 +25,40 @@ final class TaskViewModel: ObservableObject {
 		token?.invalidate()
 	}
 	
+	
 	private func setupObserver() {
-		do {
-			let realm = try Realm()
-			let results = realm.objects(TaskObject.self)
-			
-			token = results.observe({ [weak self] changes in
-				self?.tasks = results.map(Task.init).sorted(by: { a, b in
-					a.completedAt > b.completedAt
-				})
+		
+		let results = self.realm.objects(TaskObject.self)
+		
+		token = results.observe({ [weak self] changes in
+			self?.tasks = results.map(Task.init).sorted(by: { a, b in
+				a.completedAt > b.completedAt
 			})
-			
-		} catch let error  {
-			print(error.localizedDescription)
-		}
+		})
+		
 	}
 	
 	func addTask(title: String) {
-		let taskobject = TaskObject(value: [
+		let taskObject = TaskObject(value: [
 			"title": title,
 			"completed": false
 		])
+		
 		do {
-			let realm = try Realm()
-			try realm.write {
-				realm.add(taskobject)
+			try self.realm.write {
+				realm.add(taskObject)
 			}
+			
 		} catch let error {
 			print(error.localizedDescription)
 		}
 	}
 	
+	
 	func markComplete(id: String, completed: Bool) {
 		do {
-			let realm = try Realm()
 			let objectId = try ObjectId(string: id)
-			let task = realm.object(ofType: TaskObject.self, forPrimaryKey: objectId)
+			let task = self.realm.object(ofType: TaskObject.self, forPrimaryKey: objectId)
 			try realm.write {
 				task?.completed = completed
 				task?.completedAt = Date()
@@ -70,9 +70,8 @@ final class TaskViewModel: ObservableObject {
 	
 	func remove(id: String) {
 		do {
-			let realm = try Realm()
 			let objectId = try ObjectId(string: id)
-			if let task = realm.object(ofType: TaskObject.self, forPrimaryKey: objectId) {
+			if let task = self.realm.object(ofType: TaskObject.self, forPrimaryKey: objectId) {
 				try realm.write {
 					realm.delete(task)
 				}
@@ -82,16 +81,18 @@ final class TaskViewModel: ObservableObject {
 		}
 	}
 	
-	func updateTitle(id: String, newTitle: String) {
+	func update(id: String, newTitle: String, dueDate: Date?) {
 		do {
-			let realm = try Realm()
 			let objectId = try ObjectId(string: id)
-			let task = realm.object(ofType: TaskObject.self, forPrimaryKey: objectId)
+			let task = self.realm.object(ofType: TaskObject.self, forPrimaryKey: objectId)
 			try realm.write {
 				task?.title = newTitle
+				task?.dueDate = dueDate
 			}
 		} catch let error {
 			print(error.localizedDescription)
 		}
 	}
+	
 }
+

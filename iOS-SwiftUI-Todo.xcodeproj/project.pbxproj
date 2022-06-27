@@ -69,17 +69,13 @@
 		A31996F728602527009429DC /* iOS-SwiftUI-Todo */ = {
 			isa = PBXGroup;
 			children = (
+				A32D65A7286A192E00F5B0AB /* View Model */,
+				A32D65A6286A191100F5B0AB /* Views */,
+				A32D65A5286A18FC00F5B0AB /* Data Models */,
 				A31996F828602527009429DC /* iOS_SwiftUI_TodoApp.swift */,
 				A31996FA28602527009429DC /* ContentView.swift */,
 				A31996FC28602528009429DC /* Assets.xcassets */,
 				A31996FE28602528009429DC /* Preview Content */,
-				A319970B28602593009429DC /* Task.swift */,
-				A319970D286025A1009429DC /* TaskRowView.swift */,
-				A319970F286025B0009429DC /* TaskListView.swift */,
-				A3199711286025BE009429DC /* AddTaskView.swift */,
-				A3199713286025CD009429DC /* TaskObject.swift */,
-				A3199715286025D9009429DC /* TaskViewModel.swift */,
-				A3199717286025EB009429DC /* TaskView.swift */,
 			);
 			path = "iOS-SwiftUI-Todo";
 			sourceTree = "<group>";
@@ -90,6 +86,34 @@
 				A31996FF28602528009429DC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A32D65A5286A18FC00F5B0AB /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				A319970B28602593009429DC /* Task.swift */,
+				A3199713286025CD009429DC /* TaskObject.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		A32D65A6286A191100F5B0AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A319970D286025A1009429DC /* TaskRowView.swift */,
+				A319970F286025B0009429DC /* TaskListView.swift */,
+				A3199711286025BE009429DC /* AddTaskView.swift */,
+				A3199717286025EB009429DC /* TaskView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A32D65A7286A192E00F5B0AB /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3199715286025D9009429DC /* TaskViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

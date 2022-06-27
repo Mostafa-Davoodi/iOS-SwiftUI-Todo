@@ -11,50 +11,52 @@ struct TaskView: View {
 	@EnvironmentObject private var viewModel: TaskViewModel
 	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 	@State private var taskTitle: String = ""
-	
+	@State private var dueDate: Date = Date()
 	let task: Task
 	
 	var body: some View {
-			
+		
 		VStack(alignment: .leading, spacing: 24) {
 			
 			VStack(alignment: .leading, spacing: 4) {
+				
 				Text("Title")
 					.foregroundColor(.gray)
 				
-				TextField("Enter title..", text: $taskTitle)
-					.font(.largeTitle)
+				TextField("Update title here", text: $taskTitle)
 				
-				Divider()
 			}
 			
+			DatePicker("Select due date", selection: $dueDate)
+			
 			Button {
-				deleteAction()
+				self.deleteHandler()
 			} label: {
 				HStack {
 					Image(systemName: "trash.fill")
 					Text("Delete")
-				}
-				.foregroundColor(.red)
+				}.foregroundColor(.red)
 			}
 			
 			Spacer()
-
+			
 		}
-		.navigationBarTitle("Edit Todo")
-		.navigationBarTitleDisplayMode(.inline)
+		.navigationBarTitle("Edit todo")
 		.padding(24)
-		.onAppear(perform: {
+		.onAppear {
 			taskTitle = task.title
-		})
+			dueDate = task.dueDate ?? Date()
+		}
 		.onDisappear(perform: updateTask)
+		
+		
 	}
 	
 	private func updateTask() {
-		viewModel.updateTitle(id: task.id, newTitle: taskTitle)
+		viewModel.update(id: task.id, newTitle: taskTitle, dueDate: dueDate)
 	}
 	
-	private func deleteAction() {
+	private func deleteHandler() {
 		viewModel.remove(id: task.id)
 		presentationMode.wrappedValue.dismiss()
 	}

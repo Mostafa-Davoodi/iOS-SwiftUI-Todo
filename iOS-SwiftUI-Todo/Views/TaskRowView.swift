@@ -11,9 +11,11 @@ struct TaskRowView: View {
 	@EnvironmentObject private var viewModel: TaskViewModel
 	@State private var isComplete: Bool = false
 	let task: Task
-	
+		
 	var body: some View {
+			
 		HStack(spacing: 8) {
+			
 			Button {
 				self.toggleCompletion()
 			} label: {
@@ -22,19 +24,27 @@ struct TaskRowView: View {
 					.frame(width: 20, height: 20)
 					.foregroundColor(task.completed ? Color.green : Color.gray)
 			}
+			
 			Text(task.title)
 				.foregroundColor(.black)
+			
 			Spacer()
+			
+			Text(task.formattedDate)
+				.foregroundColor(.black)
+			
 		}
-		.onAppear(perform: {
+		.onAppear {
 			isComplete = task.completed
-		})
-		.padding(.init(top: 16, leading: 20, bottom: 16, trailing: 20))
+		}
+		
+		
 	}
 	
 	private func toggleCompletion() {
 		isComplete.toggle()
 		viewModel.markComplete(id: task.id, completed: isComplete)
 	}
+	
 }
 

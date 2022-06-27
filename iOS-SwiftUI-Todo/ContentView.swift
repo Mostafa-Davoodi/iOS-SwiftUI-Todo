@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+		
 	var body: some View {
+		
 		NavigationView {
-			VStack {
+			
+			VStack(spacing: 16) {
 				AddTaskView()
 				TaskListView()
 			}
+			.padding()
 			.navigationTitle("Todo")
-		}
 			
+		}
+				
 		
 	}
 }
