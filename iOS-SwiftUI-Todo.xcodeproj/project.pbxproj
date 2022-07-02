@@ -22,6 +22,9 @@
 		A3199718286025EB009429DC /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3199717286025EB009429DC /* TaskView.swift */; };
 		A34A42D82870197F006E5D10 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34A42D72870197F006E5D10 /* TodoModel.swift */; };
 		A34A42DA28701A43006E5D10 /* NetworkingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34A42D928701A43006E5D10 /* NetworkingLayer.swift */; };
+		A34A42E7287024A8006E5D10 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A34A42E6287024A8006E5D10 /* Alamofire */; };
+		A34A42E9287024C5006E5D10 /* NetworkingLayerAF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34A42E8287024C5006E5D10 /* NetworkingLayerAF.swift */; };
+		A34A42EB2870292F006E5D10 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34A42EA2870292F006E5D10 /* Serializer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,8 @@
 		A34A42D72870197F006E5D10 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		A34A42D928701A43006E5D10 /* NetworkingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingLayer.swift; sourceTree = "<group>"; };
 		A34A42DB28701CBD006E5D10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A34A42E8287024C5006E5D10 /* NetworkingLayerAF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingLayerAF.swift; sourceTree = "<group>"; };
+		A34A42EA2870292F006E5D10 /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A34A42E7287024A8006E5D10 /* Alamofire in Frameworks */,
 				A319970A2860256D009429DC /* RealmSwift in Frameworks */,
 				A31997082860256D009429DC /* Realm in Frameworks */,
 			);
@@ -126,8 +132,10 @@
 		A34A42D528701956006E5D10 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A34A42D628701973006E5D10 /* Models */,
 				A34A42D928701A43006E5D10 /* NetworkingLayer.swift */,
+				A34A42E8287024C5006E5D10 /* NetworkingLayerAF.swift */,
+				A34A42D628701973006E5D10 /* Models */,
+				A34A42EA2870292F006E5D10 /* Serializer.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -159,6 +167,7 @@
 			packageProductDependencies = (
 				A31997072860256D009429DC /* Realm */,
 				A31997092860256D009429DC /* RealmSwift */,
+				A34A42E6287024A8006E5D10 /* Alamofire */,
 			);
 			productName = "iOS-SwiftUI-Todo";
 			productReference = A31996F528602527009429DC /* iOS-SwiftUI-Todo.app */;
@@ -190,6 +199,7 @@
 			mainGroup = A31996EC28602527009429DC;
 			packageReferences = (
 				A31997062860256D009429DC /* XCRemoteSwiftPackageReference "realm-swift" */,
+				A34A42E5287024A8006E5D10 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = A31996F628602527009429DC /* Products */;
 			projectDirPath = "";
@@ -219,6 +229,8 @@
 			files = (
 				A3199718286025EB009429DC /* TaskView.swift in Sources */,
 				A34A42DA28701A43006E5D10 /* NetworkingLayer.swift in Sources */,
+				A34A42E9287024C5006E5D10 /* NetworkingLayerAF.swift in Sources */,
+				A34A42EB2870292F006E5D10 /* Serializer.swift in Sources */,
 				A31996FB28602527009429DC /* ContentView.swift in Sources */,
 				A319970C28602593009429DC /* Task.swift in Sources */,
 				A34A42D82870197F006E5D10 /* TodoModel.swift in Sources */,
@@ -440,6 +452,14 @@
 				kind = branch;
 			};
 		};
+		A34A42E5287024A8006E5D10 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -452,6 +472,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A31997062860256D009429DC /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		A34A42E6287024A8006E5D10 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A34A42E5287024A8006E5D10 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

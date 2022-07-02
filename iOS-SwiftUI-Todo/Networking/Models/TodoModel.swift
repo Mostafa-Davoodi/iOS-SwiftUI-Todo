@@ -24,5 +24,5 @@ struct TodoModel: Codable {
 }
 
 struct NoteBody: Codable {
-	var name: String
+	var note: String
 }
