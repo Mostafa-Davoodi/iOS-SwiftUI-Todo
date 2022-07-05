@@ -13,24 +13,12 @@ struct TaskListView: View {
 	
 	var body: some View {
 			
-		ScrollView {
+		ForEach(viewModel.tasks, id: \.id) { task in
 			
-			LazyVStack(alignment: .leading) {
-				
-				ForEach(viewModel.tasks, id: \.id) { task in
-					
-					NavigationLink {
-						TaskView(task: task)
-					} label: {
-						TaskRowView(task: task)
-					}
-					
-					Divider().padding(.leading, 20)
-					
-				}
-				.animation(.default, value: 10)
-				
-				
+			NavigationLink {
+				TaskDetailView(task: task)
+			} label: {
+				TaskRowView(task: task)
 			}
 			
 		}

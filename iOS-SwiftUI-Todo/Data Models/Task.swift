@@ -11,14 +11,14 @@ struct Task: Identifiable {
 	var id: String
 	var title: String
 	var completed: Bool = false
-	var completedAt: Date = Date()
+	var completedAt: Date? = nil
 	var dueDate: Date? = nil
 	
 	init(
 		id: String,
 		title: String,
 		completed: Bool = false,
-		completedAt: Date = Date(),
+		completedAt: Date? = nil,
 		dueDate: Date? = nil
 	) {
 		self.id = id
@@ -41,7 +41,7 @@ struct Task: Identifiable {
 			let format = "MMM d, y"
 			let dateFormatter = DateFormatter()
 			dateFormatter.dateFormat = format
-			return "Due at \(dateFormatter.string(from: date))"
+			return "\(dateFormatter.string(from: date))"
 		}
 		return ""
 	}

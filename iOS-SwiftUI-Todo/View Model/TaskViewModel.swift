@@ -32,7 +32,7 @@ final class TaskViewModel: ObservableObject {
 		
 		token = results.observe({ [weak self] changes in
 			self?.tasks = results.map(Task.init).sorted(by: { a, b in
-				a.completedAt > b.completedAt
+				a.completedAt ?? Date() > b.completedAt ?? Date()
 			})
 		})
 		

@@ -22,7 +22,7 @@ struct TaskRowView: View {
 				Image(systemName: task.completed ? "checkmark.circle.fill" : "circle")
 					.resizable()
 					.frame(width: 20, height: 20)
-					.foregroundColor(task.completed ? Color.green : Color.gray)
+					.foregroundColor(task.completed ? Color.blue : Color.gray)
 			}
 			
 			Text(task.title)

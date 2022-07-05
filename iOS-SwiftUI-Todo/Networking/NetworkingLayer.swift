@@ -33,47 +33,6 @@ class NetworkingLayer {
 		task.resume()
 	}
 	
-	func createNewItem(body: NoteBody) {
-		let session = URLSession.shared
-		let url = URL(string: baseUrl)!
-		var request = URLRequest(url: url)
-		request.httpMethod = "POST"
-		
-		if let json = try? JSONEncoder().encode(body) {
-			request.httpBody = json
-			let task = session.dataTask(with: url) { data, response, error in
-				if let error = error {
-					print(error.localizedDescription)
-				} else {
-					if let data = data,
-							let response = response as? HTTPURLResponse,
-						 (200...299).contains(response.statusCode) {
-						let unwrapData = self.deserializeSingle(data: data)
-						print("data is: ")
-						print(unwrapData)
-						
-						
-					}
-				}
-			}
-			task.resume()
-		}
-		
-	}
-	
-	func getSingleItem(id: String) {
-		
-	}
-	
-	func updateSingleItem(id: String) {
-		
-	}
-	
-	func deleteSingleItem(id: String) {
-		
-	}
-	
-	
 	func deserialize(data: Data) -> [TodoModel] {
 		let decoder = JSONDecoder()
 		do {
