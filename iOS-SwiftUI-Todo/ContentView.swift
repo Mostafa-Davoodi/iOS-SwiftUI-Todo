@@ -8,17 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+	
+	init() {
+		UITabBar.appearance().backgroundColor = .lightGray
+	}
 		
 	var body: some View {
 		
-		NavigationView {
+		TabView {
 			
-			VStack(spacing: 16) {
-				AddTaskView()
-				TaskListView()
+			NavigationView {
+				TaskView()
+					.navigationBarTitle("Todo")
 			}
-			.padding()
-			.navigationTitle("Todo")
+			.tabItem {
+				Label("Todo", systemImage: "list.dash")
+			}
+			
+			
+			NavigationView {
+				SettingView()
+					.navigationBarTitle("Setting")
+			}
+			.tabItem {
+				Label("Setting", systemImage: "gear")
+			}
+			
 			
 		}
 				

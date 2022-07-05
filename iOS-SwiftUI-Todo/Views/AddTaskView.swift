@@ -10,6 +10,7 @@ import SwiftUI
 struct AddTaskView: View {
 	
 	@State private var taskTitle = ""
+	@State private var showEmptyTodoAlert: Bool = false
 	@EnvironmentObject private var viewModel: TaskViewModel
 	
 	var body: some View {
@@ -25,12 +26,19 @@ struct AddTaskView: View {
 			}
 			
 		}
+		.alert("Empty title!", isPresented: $showEmptyTodoAlert) {
+			Button("Close"){ }
+		}
 			
 	}
 	
 	private func handleSubmit() {
-		viewModel.addTask(title: taskTitle)
-		taskTitle = ""
+		if !taskTitle.isEmpty {
+			viewModel.addTask(title: taskTitle)
+			taskTitle = ""
+		} else {
+			showEmptyTodoAlert.toggle()
+		}
 	}
 	
 }

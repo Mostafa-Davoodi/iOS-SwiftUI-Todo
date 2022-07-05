@@ -19,12 +19,14 @@
 		A3199712286025BE009429DC /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3199711286025BE009429DC /* AddTaskView.swift */; };
 		A3199714286025CD009429DC /* TaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3199713286025CD009429DC /* TaskObject.swift */; };
 		A3199716286025D9009429DC /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3199715286025D9009429DC /* TaskViewModel.swift */; };
-		A3199718286025EB009429DC /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3199717286025EB009429DC /* TaskView.swift */; };
+		A3199718286025EB009429DC /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3199717286025EB009429DC /* TaskDetailView.swift */; };
 		A34A42D82870197F006E5D10 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34A42D72870197F006E5D10 /* TodoModel.swift */; };
 		A34A42DA28701A43006E5D10 /* NetworkingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34A42D928701A43006E5D10 /* NetworkingLayer.swift */; };
 		A34A42E7287024A8006E5D10 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A34A42E6287024A8006E5D10 /* Alamofire */; };
 		A34A42E9287024C5006E5D10 /* NetworkingLayerAF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34A42E8287024C5006E5D10 /* NetworkingLayerAF.swift */; };
 		A34A42EB2870292F006E5D10 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34A42EA2870292F006E5D10 /* Serializer.swift */; };
+		A3B8E8972873F62B002F316A /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B8E8962873F62B002F316A /* TaskView.swift */; };
+		A3B8E8992873F701002F316A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B8E8982873F701002F316A /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,12 +41,14 @@
 		A3199711286025BE009429DC /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		A3199713286025CD009429DC /* TaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskObject.swift; sourceTree = "<group>"; };
 		A3199715286025D9009429DC /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
-		A3199717286025EB009429DC /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		A3199717286025EB009429DC /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 		A34A42D72870197F006E5D10 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		A34A42D928701A43006E5D10 /* NetworkingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingLayer.swift; sourceTree = "<group>"; };
 		A34A42DB28701CBD006E5D10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A34A42E8287024C5006E5D10 /* NetworkingLayerAF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingLayerAF.swift; sourceTree = "<group>"; };
 		A34A42EA2870292F006E5D10 /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
+		A3B8E8962873F62B002F316A /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		A3B8E8982873F701002F316A /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 				A31996FA28602527009429DC /* ContentView.swift */,
 				A31996FC28602528009429DC /* Assets.xcassets */,
 				A31996FE28602528009429DC /* Preview Content */,
+				A3B8E8982873F701002F316A /* SettingView.swift */,
 			);
 			path = "iOS-SwiftUI-Todo";
 			sourceTree = "<group>";
@@ -116,7 +121,8 @@
 				A319970D286025A1009429DC /* TaskRowView.swift */,
 				A319970F286025B0009429DC /* TaskListView.swift */,
 				A3199711286025BE009429DC /* AddTaskView.swift */,
-				A3199717286025EB009429DC /* TaskView.swift */,
+				A3199717286025EB009429DC /* TaskDetailView.swift */,
+				A3B8E8962873F62B002F316A /* TaskView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,11 +233,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3199718286025EB009429DC /* TaskView.swift in Sources */,
+				A3199718286025EB009429DC /* TaskDetailView.swift in Sources */,
+				A3B8E8972873F62B002F316A /* TaskView.swift in Sources */,
 				A34A42DA28701A43006E5D10 /* NetworkingLayer.swift in Sources */,
 				A34A42E9287024C5006E5D10 /* NetworkingLayerAF.swift in Sources */,
 				A34A42EB2870292F006E5D10 /* Serializer.swift in Sources */,
 				A31996FB28602527009429DC /* ContentView.swift in Sources */,
+				A3B8E8992873F701002F316A /* SettingView.swift in Sources */,
 				A319970C28602593009429DC /* Task.swift in Sources */,
 				A34A42D82870197F006E5D10 /* TodoModel.swift in Sources */,
 				A3199710286025B0009429DC /* TaskListView.swift in Sources */,
