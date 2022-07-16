@@ -38,19 +38,26 @@ final class TaskViewModel: ObservableObject {
 		
 	}
 	
-	func addTask(title: String) {
-		let taskObject = TaskObject(value: [
-			"title": title,
-			"completed": false
-		])
+	func addTask(title: String) -> String? {
+		
 		
 		do {
+			let objectId = ObjectId()
+			let taskObject = TaskObject(value: [
+				"id": objectId,
+				"title": title,
+				"completed": false
+			])
+			
 			try self.realm.write {
 				realm.add(taskObject)
 			}
 			
+			return objectId.stringValue
+			
 		} catch let error {
 			print(error.localizedDescription)
+			return nil
 		}
 	}
 	
