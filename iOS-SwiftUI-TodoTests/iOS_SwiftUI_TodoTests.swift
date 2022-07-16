@@ -31,12 +31,12 @@ class iOS_SwiftUI_TodoTests: XCTestCase {
 		let delayExpectation = expectation(description: "add task delay expectation")
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+			XCTAssertTrue(self.sut.tasks.contains(where: { task in
+				task.id == taskId
+			}))
 			delayExpectation.fulfill()
 		}
 		waitForExpectations(timeout: 2)
-		XCTAssertTrue(sut.tasks.contains(where: { task in
-			task.id == taskId
-		}))
 	}
 
 	func testTaskViewModel_WhenUpdateTask_taskShouldBeUpdatedInViewModel() throws {
@@ -50,11 +50,10 @@ class iOS_SwiftUI_TodoTests: XCTestCase {
 		let delayExpectation = expectation(description: "update task delay expectation")
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+			XCTAssertTrue(self.sut.tasks.contains(where: { task in (task.title == updatedTask) && (task.id == taskId) }))
 			delayExpectation.fulfill()
 		}
 		waitForExpectations(timeout: 2)
-		
-		XCTAssertTrue(sut.tasks.contains(where: { task in (task.title == updatedTask) && (task.id == taskId) }))
 	}
 
 	func testTaskViewModel_WhenRemoveTask_taskShouldNotBeAvailableInViewModel() throws {
@@ -66,11 +65,10 @@ class iOS_SwiftUI_TodoTests: XCTestCase {
 		let delayExpectation = expectation(description: "remove task delay expectation")
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+			XCTAssertFalse(self.sut.tasks.contains(where: { task in task.id == taskId }))
 			delayExpectation.fulfill()
 		}
 		waitForExpectations(timeout: 2)
-		
-		XCTAssertFalse(sut.tasks.contains(where: { task in task.id == taskId }))
 	}
 	
 	func testTaskViewModel_WhenMarkCompleteTask_taskShouldBeUpdatedInViewModel() throws {
@@ -82,11 +80,10 @@ class iOS_SwiftUI_TodoTests: XCTestCase {
 		let delayExpectation = expectation(description: "mark complete task delay expectation")
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+			XCTAssertTrue(self.sut.tasks.contains(where: { task in (task.id == taskId) && (task.completed) }))
 			delayExpectation.fulfill()
 		}
 		waitForExpectations(timeout: 2)
-		
-		XCTAssertTrue(sut.tasks.contains(where: { task in (task.id == taskId) && (task.completed) }))
 	}
 
 }
