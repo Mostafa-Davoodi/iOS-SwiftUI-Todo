@@ -34,7 +34,7 @@ struct AddTaskView: View {
 	
 	private func handleSubmit() {
 		if !taskTitle.isEmpty {
-			viewModel.addTask(title: taskTitle)
+			_ = viewModel.addTask(title: taskTitle)
 			taskTitle = ""
 		} else {
 			showEmptyTodoAlert.toggle()

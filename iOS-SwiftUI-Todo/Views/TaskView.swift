@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TaskView: View {
+	@EnvironmentObject private var viewModel: TaskViewModel
+	
 	var body: some View {
 		List {
 			Section {
@@ -15,9 +17,23 @@ struct TaskView: View {
 			}
 			
 			Section {
-				TaskListView()
+				ForEach(viewModel.tasks, id: \.id) { task in
+					
+					NavigationLink {
+						TaskDetailView(task: task)
+					} label: {
+						TaskRowView(task: task)
+					}
+					
+				}
+				.onDelete(perform: delete(at:))
 			}
 		}
+	}
+	
+	func delete(at offsets: IndexSet) {
+		let id = offsets.map { self.viewModel.tasks[$0].id }.first ?? ""
+		viewModel.remove(id: id)
 	}
 }
 
