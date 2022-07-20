@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
 	
 	init() {
-		UITabBar.appearance().backgroundColor = .lightGray
+		UITabBar.appearance().backgroundColor = .lightText
 	}
 		
 	var body: some View {
