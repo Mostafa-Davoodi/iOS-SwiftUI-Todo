@@ -27,6 +27,7 @@
 		A353A34528827A6300F41335 /* iOS_SwiftUI_TodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353A34428827A6300F41335 /* iOS_SwiftUI_TodoTests.swift */; };
 		A3B8E8972873F62B002F316A /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B8E8962873F62B002F316A /* TaskView.swift */; };
 		A3B8E8992873F701002F316A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B8E8982873F701002F316A /* SettingView.swift */; };
+		A3F9BA2B28878A5E005E98D7 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F9BA2A28878A5E005E98D7 /* ColorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		A353A34428827A6300F41335 /* iOS_SwiftUI_TodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_SwiftUI_TodoTests.swift; sourceTree = "<group>"; };
 		A3B8E8962873F62B002F316A /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		A3B8E8982873F701002F316A /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		A3F9BA2A28878A5E005E98D7 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				A3199711286025BE009429DC /* AddTaskView.swift */,
 				A3199717286025EB009429DC /* TaskDetailView.swift */,
 				A3B8E8962873F62B002F316A /* TaskView.swift */,
+				A3F9BA2A28878A5E005E98D7 /* ColorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				A3B8E8992873F701002F316A /* SettingView.swift in Sources */,
 				A319970C28602593009429DC /* Task.swift in Sources */,
 				A34A42D82870197F006E5D10 /* TodoModel.swift in Sources */,
+				A3F9BA2B28878A5E005E98D7 /* ColorView.swift in Sources */,
 				A3199712286025BE009429DC /* AddTaskView.swift in Sources */,
 				A3199714286025CD009429DC /* TaskObject.swift in Sources */,
 				A3199716286025D9009429DC /* TaskViewModel.swift in Sources */,

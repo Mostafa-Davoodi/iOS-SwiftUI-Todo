@@ -42,7 +42,7 @@ final class TaskViewModel: ObservableObject {
 		
 		
 		do {
-			let objectId = ObjectId()
+			let objectId = ObjectId(timestamp: Date(), machineId: 1, processId: 1)
 			let taskObject = TaskObject(value: [
 				"id": objectId,
 				"title": title,
@@ -88,13 +88,20 @@ final class TaskViewModel: ObservableObject {
 		}
 	}
 	
-	func update(id: String, newTitle: String, dueDate: Date?) {
+	func update(
+		id: String,
+		title: String,
+		description: String,
+		dueDate: Date?,
+		color: TaskColor?) {
 		do {
 			let objectId = try ObjectId(string: id)
 			let task = self.realm.object(ofType: TaskObject.self, forPrimaryKey: objectId)
 			try realm.write {
-				task?.title = newTitle
+				task?.title = title
+				task?.desc = description
 				task?.dueDate = dueDate
+				task?.taskColor = color?.rawValue
 			}
 		} catch let error {
 			print(error.localizedDescription)

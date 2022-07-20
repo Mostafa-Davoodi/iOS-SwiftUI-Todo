@@ -30,6 +30,10 @@ struct TaskRowView: View {
 			
 			Spacer()
 			
+			if let color = task.color?.color {
+				ColorView(color: color, size: 24.0)
+			}
+			
 			Text(task.formattedDate)
 				.foregroundColor(.black)
 			
